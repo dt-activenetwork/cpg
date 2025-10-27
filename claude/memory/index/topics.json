@@ -1,0 +1,25 @@
+{
+  "topics": {
+    "CPG Architecture": {
+      "description": "Core architecture of CPG frontends",
+      "notes": ["sem-001", "sem-002"]
+    },
+    "Java Frontend": {
+      "description": "Java language frontend implementation",
+      "notes": ["sem-001", "sem-002", "ep-001"]
+    },
+    "Design Patterns": {
+      "description": "Design patterns used in CPG",
+      "notes": ["sem-002"]
+    },
+    "Analysis Workflows": {
+      "description": "Procedures for analyzing codebases",
+      "notes": ["proc-001"]
+    },
+    "Task Sessions": {
+      "description": "Episodic records of completed tasks",
+      "notes": ["ep-001"]
+    }
+  },
+  "updated": "2025-10-27"
+}

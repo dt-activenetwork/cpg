@@ -1,0 +1,18 @@
+{
+  "tags": {
+    "java": ["sem-001", "sem-002"],
+    "cpg": ["sem-001", "proc-001"],
+    "architecture": ["sem-001", "sem-002"],
+    "fraunhofer-aisec": ["sem-001"],
+    "design-pattern": ["sem-002"],
+    "handlers": ["sem-002"],
+    "ast-transformation": ["sem-002"],
+    "task-completion": ["ep-001"],
+    "documentation": ["ep-001", "proc-001"],
+    "java-frontend": ["ep-001"],
+    "cpg-analysis": ["ep-001"],
+    "workflow": ["proc-001"],
+    "frontend-analysis": ["proc-001"]
+  },
+  "updated": "2025-10-27"
+}
