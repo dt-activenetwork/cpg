@@ -1,18 +1,28 @@
 {
   "tags": {
     "java": ["sem-001", "sem-002"],
-    "cpg": ["sem-001", "proc-001"],
+    "cpg": ["sem-001", "proc-001", "sem-003", "sem-004"],
     "architecture": ["sem-001", "sem-002"],
     "fraunhofer-aisec": ["sem-001"],
     "design-pattern": ["sem-002"],
     "handlers": ["sem-002"],
     "ast-transformation": ["sem-002"],
-    "task-completion": ["ep-001"],
-    "documentation": ["ep-001", "proc-001"],
+    "task-completion": ["ep-001", "ep-002", "ep-003"],
+    "documentation": ["ep-001", "proc-001", "ep-002", "ep-003"],
     "java-frontend": ["ep-001"],
-    "cpg-analysis": ["ep-001"],
+    "cpg-analysis": ["ep-002", "ep-003"],
     "workflow": ["proc-001"],
-    "frontend-analysis": ["proc-001"]
+    "frontend-analysis": ["proc-001"],
+    "unreachable-code": ["sem-003", "ep-002"],
+    "constant-evaluation": ["sem-003", "ep-002"],
+    "branch-pruning": ["sem-003"],
+    "eog": ["sem-003"],
+    "query-api": ["sem-004", "ep-003"],
+    "dsl": ["sem-004", "ep-003"],
+    "analysis": ["sem-004", "ep-003"],
+    "sensitivity": ["sem-004", "ep-003"],
+    "querytree": ["sem-004", "ep-003"],
+    "graph-infrastructure": ["ep-003"]
   },
-  "updated": "2025-10-27"
+  "updated": "2025-10-28"
 }

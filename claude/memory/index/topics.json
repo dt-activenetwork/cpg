@@ -18,8 +18,24 @@
     },
     "Task Sessions": {
       "description": "Episodic records of completed tasks",
-      "notes": ["ep-001"]
+      "notes": ["ep-001", "ep-002", "ep-003"]
+    },
+    "Unreachable Code Analysis": {
+      "description": "Constant evaluation and branch pruning for dead code detection",
+      "notes": ["sem-003", "ep-002", "ep-003"]
+    },
+    "CPG Core": {
+      "description": "Core graph structure, nodes, edges, and passes",
+      "notes": ["sem-003"]
+    },
+    "Query API DSL": {
+      "description": "Query DSL for graph traversal and analysis",
+      "notes": ["sem-004", "ep-003"]
+    },
+    "Graph-Query Collaboration": {
+      "description": "Collaboration between graph layer and query layer",
+      "notes": ["sem-004", "ep-003"]
     }
   },
-  "updated": "2025-10-27"
+  "updated": "2025-10-28"
 }
