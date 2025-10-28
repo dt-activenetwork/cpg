@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://cpg-memory-system/schemas/topics-index.json",
+  "title": "CPG Memory System - Enhanced Topics Index",
+  "description": "Hierarchical topic-based index organizing knowledge by subject area",
+  "version": "2.0.0",
+  "updated": "2025-10-28",
+
+  "topics": {
+    "CPG Architecture": {
+      "description": "Core architecture of CPG frontends and graph structure",
+      "notes": ["sem-001", "sem-002"],
+      "subtopics": [
+        "Language Frontends",
+        "Handler Pattern",
+        "AST to CPG Transformation"
+      ],
+      "related_topics": ["Java Frontend", "Design Patterns"],
+      "coverage": "comprehensive",
+      "key_files": [
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/graph/Node.kt",
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/TranslationConfiguration.kt"
+      ]
+    },
+
+    "Java Frontend": {
+      "description": "Java language frontend implementation details",
+      "notes": ["sem-001", "sem-002", "ep-001"],
+      "subtopics": [
+        "JavaLanguageFrontend",
+        "Handler Implementations",
+        "Java-specific AST Mapping"
+      ],
+      "related_topics": ["CPG Architecture", "Design Patterns"],
+      "coverage": "comprehensive",
+      "key_files": [
+        "cpg-language-java/src/main/kotlin/de/fraunhofer/aisec/cpg/frontends/java/JavaLanguageFrontend.kt",
+        "cpg-language-java/src/main/kotlin/de/fraunhofer/aisec/cpg/frontends/java/DeclarationHandler.kt"
+      ]
+    },
+
+    "Design Patterns": {
+      "description": "Software design patterns employed in CPG codebase",
+      "notes": ["sem-002"],
+      "subtopics": [
+        "Handler Pattern",
+        "Visitor Pattern",
+        "Builder Pattern"
+      ],
+      "related_topics": ["CPG Architecture", "Java Frontend"],
+      "coverage": "partial - only Handler pattern documented",
+      "gaps": ["Visitor pattern in passes", "Builder pattern in TranslationConfiguration"]
+    },
+
+    "Analysis Workflows": {
+      "description": "Procedures for analyzing codebases and documenting findings",
+      "notes": ["proc-001"],
+      "subtopics": [
+        "Frontend Analysis Process",
+        "Documentation Structure",
+        "Evidence Collection"
+      ],
+      "related_topics": ["CPG Architecture", "Memory System"],
+      "coverage": "partial - frontend analysis only",
+      "gaps": ["Pass development workflow", "Testing workflow"]
+    },
+
+    "Task Sessions": {
+      "description": "Episodic records of completed analysis tasks",
+      "notes": ["ep-001", "ep-002", "ep-003"],
+      "subtopics": [
+        "Task 1: Java Frontend Analysis",
+        "Task 2: Constant Evaluation Infrastructure",
+        "Task 3: Presentation Creation (pending)"
+      ],
+      "related_topics": ["All topics (cross-cutting)"],
+      "coverage": "ongoing",
+      "metadata": {
+        "task_1_outputs": 3,
+        "task_2_outputs": 4,
+        "task_3_outputs": 0
+      }
+    },
+
+    "Unreachable Code Analysis": {
+      "description": "Dead code detection through constant evaluation and branch pruning",
+      "notes": ["sem-003", "ep-002", "ep-003"],
+      "subtopics": [
+        "UnreachableEOGPass Implementation",
+        "Constant Evaluation",
+        "Branch Pruning Algorithm",
+        "Lattice-based Data Flow Analysis"
+      ],
+      "related_topics": ["CPG Core", "Query API DSL", "Constant Evaluation"],
+      "coverage": "comprehensive",
+      "key_files": [
+        "cpg-analysis/src/main/kotlin/de/fraunhofer/aisec/cpg/passes/UnreachableEOGPass.kt"
+      ]
+    },
+
+    "CPG Core": {
+      "description": "Core graph structure: nodes, edges, properties, and graph building",
+      "notes": ["sem-003"],
+      "subtopics": [
+        "Node Base Class",
+        "EOG (Evaluation Order Graph)",
+        "DFG (Data Flow Graph)",
+        "PDG (Program Dependence Graph)",
+        "Edge Types and Properties"
+      ],
+      "related_topics": ["Query API DSL", "Pass Infrastructure"],
+      "coverage": "partial - EOG covered, DFG/PDG need dedicated notes",
+      "gaps": [
+        "DFG construction algorithm (sem-005 recommended)",
+        "Node type hierarchy",
+        "Edge property semantics"
+      ],
+      "key_files": [
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/graph/Node.kt",
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/graph/edges/Edge.kt"
+      ]
+    },
+
+    "Query API DSL": {
+      "description": "Kotlin DSL for querying and analyzing CPG graphs",
+      "notes": ["sem-004", "ep-003"],
+      "subtopics": [
+        "QueryTree Result Tracking",
+        "executionPath() - Control Flow Queries",
+        "dataFlow() - Data Flow Queries",
+        "Sensitivity System",
+        "AnalysisDirection and AnalysisScope"
+      ],
+      "related_topics": ["CPG Core", "Unreachable Code Analysis"],
+      "coverage": "comprehensive",
+      "key_files": [
+        "cpg-analysis/src/main/kotlin/de/fraunhofer/aisec/cpg/query/QueryTree.kt",
+        "cpg-analysis/src/main/kotlin/de/fraunhofer/aisec/cpg/query/FlowQueries.kt",
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/graph/AnalysisConfiguration.kt"
+      ]
+    },
+
+    "Graph-Query Collaboration": {
+      "description": "How graph layer and query layer interact through Sensitivity system",
+      "notes": ["sem-004", "ep-003"],
+      "subtopics": [
+        "Sensitivity as Bridge",
+        "FilterUnreachableEOG Integration",
+        "Context-Sensitive Analysis",
+        "Field-Sensitive Analysis"
+      ],
+      "related_topics": ["Query API DSL", "CPG Core", "Unreachable Code Analysis"],
+      "coverage": "comprehensive",
+      "key_insight": "Sensitivities read graph properties set by passes, enabling automatic filtering"
+    },
+
+    "Constant Evaluation": {
+      "description": "Compile-time evaluation of constant expressions",
+      "notes": ["sem-003", "ep-002"],
+      "subtopics": [
+        "ValueEvaluator Class",
+        "MultiValueEvaluator",
+        "SizeEvaluator",
+        "Supported Expression Types",
+        "Limitations and Gaps"
+      ],
+      "related_topics": ["Unreachable Code Analysis", "CPG Core"],
+      "coverage": "documented in Task 2 outputs, needs semantic note extraction",
+      "gaps": [
+        "Dedicated semantic note for ValueEvaluator (sem-007 recommended)",
+        "Symbolic execution integration (future)"
+      ],
+      "key_files": [
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/evaluation/ValueEvaluator.kt",
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/evaluation/MultiValueEvaluator.kt"
+      ]
+    },
+
+    "Pass Infrastructure": {
+      "description": "CPG analysis pass system, dependencies, and execution order",
+      "notes": [],
+      "subtopics": [
+        "Pass Base Class",
+        "Pass Dependencies (@DependsOn)",
+        "PassRunner Execution",
+        "TranslationConfiguration"
+      ],
+      "related_topics": ["CPG Core", "Unreachable Code Analysis"],
+      "coverage": "minimal - UnreachableEOGPass covered, but general system undocumented",
+      "gaps": [
+        "General pass architecture (sem-006 recommended)",
+        "Pass ordering algorithm",
+        "Custom pass development guide"
+      ],
+      "key_files": [
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/passes/Pass.kt",
+        "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/passes/PassRunner.kt"
+      ]
+    },
+
+    "Memory System": {
+      "description": "File-based external memory for persistent knowledge management",
+      "notes": [],
+      "subtopics": [
+        "Semantic Memory (stable facts)",
+        "Episodic Memory (task records)",
+        "Procedural Memory (workflows)",
+        "Global Index (tags, topics)",
+        "Task-Specific Index",
+        "Memory Operations"
+      ],
+      "related_topics": ["Analysis Workflows", "Task Sessions"],
+      "coverage": "system operational, documentation in 0.memory.md, needs procedural note",
+      "gaps": [
+        "proc-002: Memory System Operations (recommended)",
+        "Semantic note for memory system design"
+      ],
+      "key_files": [
+        "/claude/prompt/0.memory.md",
+        "/claude/memory/index/enhanced-tags.json",
+        "/claude/memory/index/enhanced-topics.json"
+      ]
+    }
+  },
+
+  "topic_hierarchy": {
+    "Level 1 - Infrastructure": {
+      "topics": ["CPG Architecture", "CPG Core", "Pass Infrastructure"],
+      "description": "Foundational framework concepts"
+    },
+    "Level 2 - Language Support": {
+      "topics": ["Java Frontend"],
+      "description": "Language-specific frontends",
+      "extensible": "C++, Python, JavaScript frontends (future)"
+    },
+    "Level 3 - Analysis Capabilities": {
+      "topics": ["Query API DSL", "Unreachable Code Analysis", "Constant Evaluation"],
+      "description": "Analysis techniques and APIs"
+    },
+    "Level 4 - Cross-Cutting": {
+      "topics": ["Design Patterns", "Graph-Query Collaboration", "Memory System"],
+      "description": "System-wide concerns and meta-knowledge"
+    },
+    "Level 5 - Process": {
+      "topics": ["Analysis Workflows", "Task Sessions"],
+      "description": "Operational procedures and historical records"
+    }
+  },
+
+  "knowledge_graph": {
+    "nodes": [
+      {"id": "cpg-arch", "label": "CPG Architecture", "level": 1},
+      {"id": "cpg-core", "label": "CPG Core", "level": 1},
+      {"id": "pass-infra", "label": "Pass Infrastructure", "level": 1},
+      {"id": "java-frontend", "label": "Java Frontend", "level": 2},
+      {"id": "query-api", "label": "Query API DSL", "level": 3},
+      {"id": "unreachable", "label": "Unreachable Code Analysis", "level": 3},
+      {"id": "const-eval", "label": "Constant Evaluation", "level": 3},
+      {"id": "design-patterns", "label": "Design Patterns", "level": 4},
+      {"id": "graph-query", "label": "Graph-Query Collaboration", "level": 4},
+      {"id": "memory-system", "label": "Memory System", "level": 4},
+      {"id": "workflows", "label": "Analysis Workflows", "level": 5},
+      {"id": "tasks", "label": "Task Sessions", "level": 5}
+    ],
+    "edges": [
+      {"from": "java-frontend", "to": "cpg-arch", "rel": "implements"},
+      {"from": "cpg-core", "to": "cpg-arch", "rel": "defines"},
+      {"from": "pass-infra", "to": "cpg-core", "rel": "operates-on"},
+      {"from": "unreachable", "to": "pass-infra", "rel": "example-of"},
+      {"from": "unreachable", "to": "const-eval", "rel": "uses"},
+      {"from": "query-api", "to": "cpg-core", "rel": "queries"},
+      {"from": "graph-query", "to": "query-api", "rel": "bridges"},
+      {"from": "graph-query", "to": "cpg-core", "rel": "bridges"},
+      {"from": "design-patterns", "to": "cpg-arch", "rel": "applied-in"},
+      {"from": "java-frontend", "to": "design-patterns", "rel": "uses"},
+      {"from": "workflows", "to": "cpg-arch", "rel": "analyzes"},
+      {"from": "tasks", "to": "workflows", "rel": "follows"},
+      {"from": "memory-system", "to": "tasks", "rel": "records"}
+    ]
+  },
+
+  "usage_guide": {
+    "finding_information": {
+      "by_concept": "Use topics index to find notes by subject area (e.g., 'Query API DSL')",
+      "by_keyword": "Use tags index (enhanced-tags.json) to find notes by specific terms",
+      "by_hierarchy": "Use topic_hierarchy to understand knowledge organization",
+      "by_relationship": "Use knowledge_graph to see connections between topics"
+    },
+    "discovering_gaps": {
+      "check": "coverage_gaps array in enhanced-tags.json",
+      "prioritize": "Use 'priority' field (high/medium/low/future)",
+      "plan": "See 'recommended_next_notes' for suggested semantic notes"
+    },
+    "extending_index": {
+      "add_note": "Update both enhanced-tags.json and enhanced-topics.json",
+      "add_tag": "Define in 'tags' object with description, category, related_tags",
+      "add_topic": "Define in 'topics' object with description, notes, subtopics, coverage",
+      "update_metadata": "Increment total_notes counter, update coverage stats"
+    }
+  },
+
+  "statistics": {
+    "total_topics": 11,
+    "comprehensive_coverage": 5,
+    "partial_coverage": 3,
+    "minimal_coverage": 2,
+    "no_coverage": 1,
+    "recommended_new_notes": 3,
+    "identified_gaps": 5
+  }
+}

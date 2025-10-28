@@ -1,0 +1,216 @@
+{
+  "task_id": "3",
+  "task_name": "CPG精确可达性分析完整流程演示",
+  "task_type": "presentation",
+  "created": "2025-10-28",
+  "description": "创建 Marp 演示文稿，展示从源码到精确分支剪枝的完整 CPG 分析流程",
+
+  "key_concepts": [
+    "AST", "EOG", "DFG", "constant-evaluation", "branch-pruning",
+    "reachability-analysis", "Query-API", "ValueEvaluator", "Pass-pipeline"
+  ],
+
+  "knowledge_requirements": {
+    "critical": {
+      "EOG机制与不可达分析": {
+        "source": "semantic/unreachable-eog-pass.md",
+        "note_id": "sem-003",
+        "priority": 1,
+        "sections_needed": [
+          "EOG edges and control flow",
+          "UnreachableEOGPass mechanism",
+          "Constant evaluation integration"
+        ],
+        "estimated_lines": "~80 lines",
+        "summary": "EOG 构建、控制流分析、不可达边剪枝机制"
+      },
+
+      "Query API DSL": {
+        "source": "semantic/query-api-dsl.md",
+        "note_id": "sem-004",
+        "priority": 1,
+        "sections_needed": [
+          "executionPath() function",
+          "QueryType (Must/May)",
+          "QueryScope (Intra/Inter)"
+        ],
+        "estimated_lines": "~60 lines",
+        "summary": "executionPath() 用法，查询可达性结果"
+      },
+
+      "常量求值基础设施": {
+        "source": "out/2/2.evaluation-infrastructure.md",
+        "priority": 2,
+        "sections_needed": [
+          "ValueEvaluator class overview (lines 20-80)",
+          "evaluate() method capabilities (lines 120-180)",
+          "Constant literal evaluation (lines 200-250)"
+        ],
+        "estimated_lines": "~150 lines",
+        "summary": "ValueEvaluator 如何求值常量表达式"
+      },
+
+      "图结构与边类型": {
+        "source": "out/2/2.graph-and-query-analysis.md",
+        "priority": 2,
+        "sections_needed": [
+          "Node.kt properties (lines 30-100)",
+          "EOG edge properties (lines 400-500)",
+          "DFG edge properties (lines 500-600)"
+        ],
+        "estimated_lines": "~200 lines",
+        "summary": "CPG 节点和边的属性，EOG/DFG 边的语义"
+      },
+
+      "Pass实现路线图": {
+        "source": "out/2/2.feasibility-and-roadmap.md",
+        "priority": 3,
+        "sections_needed": [
+          "ConstantPropagationPass design (lines 200-350)",
+          "Pass registration and configuration (lines 400-500)"
+        ],
+        "estimated_lines": "~200 lines",
+        "summary": "如何配置和注册常量传播 Pass"
+      }
+    },
+
+    "optional": {
+      "Java前端架构": {
+        "source": "out/1/1.overview-java-frontend.md",
+        "note_id": "ep-001",
+        "priority": 4,
+        "sections_needed": [
+          "Parsing overview (lines 40-80)"
+        ],
+        "estimated_lines": "~40 lines",
+        "summary": "Java 源码解析流程（仅用于 Slide 9）"
+      },
+
+      "CPG整体架构": {
+        "source": "semantic/java-cpg-architecture.md",
+        "note_id": "sem-001",
+        "priority": 4,
+        "sections_needed": [
+          "Multi-layer architecture overview"
+        ],
+        "estimated_lines": "~50 lines",
+        "summary": "CPG 四层架构的宏观视图"
+      }
+    },
+
+    "reference_only": {
+      "Task 2 完整分析": {
+        "source": "out/2/",
+        "priority": 5,
+        "usage": "演讲者备注中引用，不需要全部读取",
+        "summary": "提供技术深度的引用来源"
+      },
+
+      "示例代码": {
+        "source": "prompt/3.source-example.md",
+        "lines": "585-1202",
+        "usage": "直接复制到演示文稿的附录",
+        "summary": "四个场景的完整 Java 代码"
+      }
+    }
+  },
+
+  "code_references": {
+    "ValueEvaluator.kt": {
+      "path": "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/graph/ValueEvaluator.kt",
+      "usage": "演示常量求值机制",
+      "relevant_methods": ["evaluate()", "evaluateLiteral()"]
+    },
+
+    "EvaluationOrderGraphPass.kt": {
+      "path": "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/passes/EvaluationOrderGraphPass.kt",
+      "usage": "理解 EOG 构建过程",
+      "relevant_sections": ["EOG edge creation"]
+    },
+
+    "UnreachableEOGPass.kt": {
+      "path": "cpg-core/src/main/kotlin/de/fraunhofer/aisec/cpg/passes/UnreachableEOGPass.kt",
+      "usage": "理解分支剪枝实现",
+      "relevant_sections": ["evaluateCondition()"]
+    }
+  },
+
+  "presentation_requirements": {
+    "slides_count": "20-30",
+    "diagrams_count": "12+",
+    "primary_example": "Scenario 1 (TanpoCalFactory)",
+    "secondary_examples": ["Scenario 2", "Scenario 3", "Scenario 4"],
+    "format": "Marp Markdown",
+    "language": "Chinese (output), English (search/thinking)"
+  },
+
+  "content_mapping": {
+    "slides_1-4_problem": {
+      "requires": ["Scenario 1 code", "AST limitation explanation"],
+      "memory_refs": []
+    },
+
+    "slides_5-7_solution": {
+      "requires": ["CPG architecture overview", "Four-layer model"],
+      "memory_refs": ["sem-001 (optional)", "sem-003", "sem-004"]
+    },
+
+    "slides_8-19_walkthrough": {
+      "requires": [
+        "EOG construction details",
+        "DFG construction details",
+        "ValueEvaluator mechanics",
+        "Branch pruning mechanism"
+      ],
+      "memory_refs": [
+        "sem-003 (EOG)",
+        "2.evaluation-infrastructure.md (ValueEvaluator)",
+        "2.graph-and-query-analysis.md (edges)"
+      ]
+    },
+
+    "slides_20-23_scenarios": {
+      "requires": ["Scenarios 2-4 code snippets"],
+      "memory_refs": []
+    },
+
+    "slides_24-27_implementation": {
+      "requires": ["Pass configuration", "Query API usage"],
+      "memory_refs": [
+        "sem-004 (Query API)",
+        "2.feasibility-and-roadmap.md (Pass pipeline)"
+      ]
+    },
+
+    "slides_28-30_conclusion": {
+      "requires": ["Summary points", "Future directions"],
+      "memory_refs": []
+    }
+  },
+
+  "estimated_context_usage": {
+    "critical_reading": "~650 lines",
+    "optional_reading": "~90 lines",
+    "total": "~740 lines (vs 8300+ lines if reading all)",
+    "reduction": "91% reduction in context usage"
+  },
+
+  "reading_order": [
+    "1. sem-003 (EOG mechanism) - MUST READ FIRST",
+    "2. sem-004 (Query API) - MUST READ FIRST",
+    "3. 2.evaluation-infrastructure.md sections (ValueEvaluator) - READ BEFORE SLIDES 14-15",
+    "4. 2.graph-and-query-analysis.md sections (edge properties) - READ BEFORE SLIDES 12-13",
+    "5. 2.feasibility-and-roadmap.md sections (Pass config) - READ BEFORE SLIDE 24",
+    "6. Optional refs as needed during slide creation"
+  ],
+
+  "related_tasks": ["1", "2"],
+  "related_episodic_notes": ["ep-002", "ep-003"],
+
+  "notes": [
+    "任务的核心是教学演示，不需要完整的技术细节",
+    "重点在于可视化和渐进式讲解，而非穷尽式文档",
+    "Mermaid 图表比文字更重要",
+    "演讲者备注可以引用完整文档而无需在演示中展示"
+  ]
+}

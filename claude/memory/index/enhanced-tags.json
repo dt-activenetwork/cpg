@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://cpg-memory-system/schemas/tags-index.json",
+  "title": "CPG Memory System - Enhanced Tags Index",
+  "description": "Complete tag-based index for all memory notes with metadata",
+  "version": "2.0.0",
+  "updated": "2025-10-28",
+
+  "metadata": {
+    "total_notes": 8,
+    "semantic_notes": 4,
+    "episodic_notes": 3,
+    "procedural_notes": 1,
+    "total_tags": 26,
+    "coverage": {
+      "tasks_documented": 2,
+      "tasks_pending": 1,
+      "codebase_modules_covered": ["cpg-language-java", "cpg-analysis", "cpg-core"],
+      "key_concepts_documented": [
+        "CPG Architecture",
+        "Java Frontend",
+        "Query API DSL",
+        "Constant Evaluation",
+        "EOG/DFG",
+        "UnreachableEOGPass",
+        "Handler Pattern"
+      ]
+    }
+  },
+
+  "tags": {
+    "java": {
+      "notes": ["sem-001", "sem-002"],
+      "description": "Java language frontend and specific implementations",
+      "category": "language",
+      "related_tags": ["cpg", "java-frontend", "handlers"]
+    },
+
+    "cpg": {
+      "notes": ["sem-001", "proc-001", "sem-003", "sem-004"],
+      "description": "Core CPG framework concepts and architecture",
+      "category": "framework",
+      "related_tags": ["architecture", "graph-infrastructure", "query-api"]
+    },
+
+    "architecture": {
+      "notes": ["sem-001", "sem-002"],
+      "description": "System design and architectural patterns",
+      "category": "design",
+      "related_tags": ["design-pattern", "cpg"]
+    },
+
+    "fraunhofer-aisec": {
+      "notes": ["sem-001"],
+      "description": "Fraunhofer AISEC organization and project context",
+      "category": "meta",
+      "related_tags": ["cpg"]
+    },
+
+    "design-pattern": {
+      "notes": ["sem-002"],
+      "description": "Software design patterns used in CPG",
+      "category": "design",
+      "related_tags": ["handlers", "architecture"]
+    },
+
+    "handlers": {
+      "notes": ["sem-002"],
+      "description": "Handler pattern for AST transformation",
+      "category": "pattern",
+      "related_tags": ["design-pattern", "ast-transformation", "java"]
+    },
+
+    "ast-transformation": {
+      "notes": ["sem-002"],
+      "description": "Abstract Syntax Tree transformation processes",
+      "category": "technique",
+      "related_tags": ["handlers", "java-frontend"]
+    },
+
+    "task-completion": {
+      "notes": ["ep-001", "ep-002", "ep-003"],
+      "description": "Episodic records of completed tasks",
+      "category": "meta",
+      "related_tags": ["documentation"]
+    },
+
+    "documentation": {
+      "notes": ["ep-001", "proc-001", "ep-002", "ep-003"],
+      "description": "Documentation generation and maintenance",
+      "category": "meta",
+      "related_tags": ["task-completion", "workflow"]
+    },
+
+    "java-frontend": {
+      "notes": ["ep-001"],
+      "description": "Java language frontend implementation details",
+      "category": "module",
+      "related_tags": ["java", "cpg", "handlers"]
+    },
+
+    "cpg-analysis": {
+      "notes": ["ep-002", "ep-003"],
+      "description": "CPG analysis module and passes",
+      "category": "module",
+      "related_tags": ["unreachable-code", "constant-evaluation", "query-api"]
+    },
+
+    "workflow": {
+      "notes": ["proc-001"],
+      "description": "Reusable workflows and procedures",
+      "category": "process",
+      "related_tags": ["frontend-analysis", "documentation"]
+    },
+
+    "frontend-analysis": {
+      "notes": ["proc-001"],
+      "description": "Process for analyzing language frontends",
+      "category": "process",
+      "related_tags": ["workflow", "cpg"]
+    },
+
+    "unreachable-code": {
+      "notes": ["sem-003", "ep-002"],
+      "description": "Dead code detection and unreachable branch analysis",
+      "category": "analysis",
+      "related_tags": ["constant-evaluation", "branch-pruning", "eog"]
+    },
+
+    "constant-evaluation": {
+      "notes": ["sem-003", "ep-002"],
+      "description": "Compile-time constant value evaluation",
+      "category": "analysis",
+      "related_tags": ["unreachable-code", "branch-pruning", "value-evaluator"]
+    },
+
+    "branch-pruning": {
+      "notes": ["sem-003"],
+      "description": "Elimination of unreachable control flow branches",
+      "category": "optimization",
+      "related_tags": ["unreachable-code", "eog", "constant-evaluation"]
+    },
+
+    "eog": {
+      "notes": ["sem-003"],
+      "description": "Evaluation Order Graph - control flow representation",
+      "category": "graph",
+      "related_tags": ["cpg", "graph-infrastructure", "control-flow"]
+    },
+
+    "query-api": {
+      "notes": ["sem-004", "ep-003"],
+      "description": "Query API DSL for graph traversal and analysis",
+      "category": "api",
+      "related_tags": ["dsl", "analysis", "cpg"]
+    },
+
+    "dsl": {
+      "notes": ["sem-004", "ep-003"],
+      "description": "Domain-Specific Language for querying",
+      "category": "api",
+      "related_tags": ["query-api", "querytree"]
+    },
+
+    "analysis": {
+      "notes": ["sem-004", "ep-003"],
+      "description": "Static analysis techniques and capabilities",
+      "category": "technique",
+      "related_tags": ["query-api", "sensitivity", "cpg-analysis"]
+    },
+
+    "sensitivity": {
+      "notes": ["sem-004", "ep-003"],
+      "description": "Context-sensitive and flow-sensitive analysis",
+      "category": "technique",
+      "related_tags": ["analysis", "query-api"]
+    },
+
+    "querytree": {
+      "notes": ["sem-004", "ep-003"],
+      "description": "Query result tracking and path representation",
+      "category": "data-structure",
+      "related_tags": ["query-api", "dsl"]
+    },
+
+    "graph-infrastructure": {
+      "notes": ["ep-003"],
+      "description": "Core graph structure (nodes, edges, properties)",
+      "category": "infrastructure",
+      "related_tags": ["cpg", "eog", "dfg"]
+    },
+
+    "dfg": {
+      "notes": [],
+      "description": "Data Flow Graph - data dependency representation",
+      "category": "graph",
+      "related_tags": ["cpg", "graph-infrastructure", "data-flow"],
+      "note": "Concept documented in ep-003 and Task 2 outputs, but no dedicated semantic note yet"
+    },
+
+    "value-evaluator": {
+      "notes": [],
+      "description": "ValueEvaluator class for constant expression evaluation",
+      "category": "component",
+      "related_tags": ["constant-evaluation", "cpg-analysis"],
+      "note": "Documented in Task 2 outputs (2.evaluation-infrastructure.md), no semantic note yet"
+    },
+
+    "passes": {
+      "notes": [],
+      "description": "CPG analysis passes infrastructure",
+      "category": "infrastructure",
+      "related_tags": ["cpg-analysis", "unreachable-code"],
+      "note": "UnreachableEOGPass documented in sem-003, but general pass system not yet covered"
+    }
+  },
+
+  "tag_categories": {
+    "language": ["java"],
+    "framework": ["cpg"],
+    "design": ["architecture", "design-pattern"],
+    "pattern": ["handlers"],
+    "technique": ["ast-transformation", "analysis", "sensitivity"],
+    "module": ["java-frontend", "cpg-analysis"],
+    "process": ["workflow", "frontend-analysis"],
+    "analysis": ["unreachable-code", "constant-evaluation"],
+    "optimization": ["branch-pruning"],
+    "graph": ["eog", "dfg"],
+    "api": ["query-api", "dsl"],
+    "data-structure": ["querytree"],
+    "infrastructure": ["graph-infrastructure", "passes"],
+    "component": ["value-evaluator"],
+    "meta": ["fraunhofer-aisec", "task-completion", "documentation"]
+  },
+
+  "coverage_gaps": [
+    {
+      "concept": "DFG (Data Flow Graph)",
+      "status": "partial",
+      "exists_in": ["ep-003", "Task 2 outputs"],
+      "missing": "Dedicated semantic note for DFG construction and semantics",
+      "priority": "high"
+    },
+    {
+      "concept": "ValueEvaluator system",
+      "status": "partial",
+      "exists_in": ["Task 2 outputs: 2.evaluation-infrastructure.md"],
+      "missing": "Semantic note extracting key concepts",
+      "priority": "medium"
+    },
+    {
+      "concept": "Pass infrastructure",
+      "status": "minimal",
+      "exists_in": ["sem-003 (UnreachableEOGPass only)"],
+      "missing": "General pass system architecture, dependencies, ordering",
+      "priority": "medium"
+    },
+    {
+      "concept": "Node types and properties",
+      "status": "partial",
+      "exists_in": ["Task 2 outputs: 2.graph-and-query-analysis.md"],
+      "missing": "Semantic note for core node types (Statement, Expression, Declaration)",
+      "priority": "low"
+    },
+    {
+      "concept": "C/C++ frontend",
+      "status": "none",
+      "exists_in": [],
+      "missing": "No coverage of other language frontends",
+      "priority": "future"
+    }
+  ],
+
+  "recommended_next_notes": [
+    {
+      "id": "sem-005",
+      "title": "DFG Construction and Data Flow Analysis",
+      "rationale": "DFG is frequently referenced but lacks dedicated semantic note",
+      "source": "ep-003, Task 2 outputs, ControlFlowSensitiveDFGPass"
+    },
+    {
+      "id": "sem-006",
+      "title": "CPG Pass Infrastructure and Ordering",
+      "rationale": "Understanding pass dependencies critical for extending CPG",
+      "source": "PassRunner, TranslationConfiguration, various pass implementations"
+    },
+    {
+      "id": "proc-002",
+      "title": "Memory System Operations and Maintenance",
+      "rationale": "Codify the memory system workflow discovered during Task 3 preparation",
+      "source": "This meta-analysis and 0.memory.md"
+    }
+  ]
+}

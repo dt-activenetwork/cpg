@@ -13,12 +13,12 @@
       "notes": ["sem-002"]
     },
     "Analysis Workflows": {
-      "description": "Procedures for analyzing codebases",
-      "notes": ["proc-001"]
+      "description": "Procedures for analyzing codebases and memory-first operations",
+      "notes": ["proc-001", "proc-002", "proc-003", "proc-004"]
     },
     "Task Sessions": {
       "description": "Episodic records of completed tasks",
-      "notes": ["ep-001", "ep-002", "ep-003"]
+      "notes": ["ep-001", "ep-002", "ep-003", "ep-004"]
     },
     "Unreachable Code Analysis": {
       "description": "Constant evaluation and branch pruning for dead code detection",
@@ -35,6 +35,14 @@
     "Graph-Query Collaboration": {
       "description": "Collaboration between graph layer and query layer",
       "notes": ["sem-004", "ep-003"]
+    },
+    "Memory System": {
+      "description": "File-based external memory system: architecture, operations, and mandatory workflows",
+      "notes": ["proc-002", "proc-003", "proc-004"]
+    },
+    "Context Optimization": {
+      "description": "Strategies for managing context window and preventing overflow in large tasks",
+      "notes": ["proc-004"]
     }
   },
   "updated": "2025-10-28"

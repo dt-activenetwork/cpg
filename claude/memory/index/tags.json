@@ -7,12 +7,16 @@
     "design-pattern": ["sem-002"],
     "handlers": ["sem-002"],
     "ast-transformation": ["sem-002"],
-    "task-completion": ["ep-001", "ep-002", "ep-003"],
+    "task-completion": ["ep-001", "ep-002", "ep-003", "ep-004"],
     "documentation": ["ep-001", "proc-001", "ep-002", "ep-003"],
+    "presentation": ["ep-004"],
+    "marp": ["ep-004"],
+    "teaching": ["ep-004"],
     "java-frontend": ["ep-001"],
-    "cpg-analysis": ["ep-002", "ep-003"],
-    "workflow": ["proc-001"],
+    "cpg-analysis": ["ep-002", "ep-003", "ep-004"],
+    "workflow": ["proc-001", "proc-002", "proc-003", "proc-004"],
     "frontend-analysis": ["proc-001"],
+    "best-practices": ["proc-003", "proc-004"],
     "unreachable-code": ["sem-003", "ep-002"],
     "constant-evaluation": ["sem-003", "ep-002"],
     "branch-pruning": ["sem-003"],
@@ -22,7 +26,12 @@
     "analysis": ["sem-004", "ep-003"],
     "sensitivity": ["sem-004", "ep-003"],
     "querytree": ["sem-004", "ep-003"],
-    "graph-infrastructure": ["ep-003"]
+    "graph-infrastructure": ["ep-003"],
+    "memory-system": ["proc-002", "proc-003", "proc-004"],
+    "knowledge-management": ["proc-002"],
+    "meta": ["proc-002", "proc-003"],
+    "context-management": ["proc-004"],
+    "incremental": ["proc-004"]
   },
   "updated": "2025-10-28"
 }
