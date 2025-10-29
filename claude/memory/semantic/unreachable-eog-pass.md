@@ -181,4 +181,4 @@ All claims verified in source code at commit 04680b1 (October 2025).
 
 - **ValueEvaluator**: See `sem-004` (evaluation infrastructure)
 - **EOG Edge Properties**: See `sem-001` (Node architecture)
-- **Related Docs**: `/claude/out/2/2.feasibility-and-roadmap.md`
+- **Related Docs**: `/claude/result/2/2.feasibility-and-roadmap.md`

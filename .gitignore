@@ -24,3 +24,5 @@ gradle.properties
 LibrariesTest.kt
 findings.json
 
+# Claude Code temporary working directories
+claude/temp/

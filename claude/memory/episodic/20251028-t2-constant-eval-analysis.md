@@ -6,10 +6,10 @@ date: 2025-10-28
 task: 2.constant-eval-and-reachability.md
 tags: [task-completion, constant-evaluation, unreachable-code, cpg-analysis]
 links:
-  - /claude/out/2/2.graph-and-query-analysis.md
-  - /claude/out/2/2.evaluation-infrastructure.md
-  - /claude/out/2/2.feasibility-and-roadmap.md
-  - /claude/out/2/2.examples-and-diagrams.md
+  - /claude/result/2/2.graph-and-query-analysis.md
+  - /claude/result/2/2.evaluation-infrastructure.md
+  - /claude/result/2/2.feasibility-and-roadmap.md
+  - /claude/result/2/2.examples-and-diagrams.md
 ---
 
 # Task 2: Constant Evaluation and Reachability Analysis - Session Summary
@@ -199,7 +199,7 @@ sensitivities = FilterUnreachableEOG + ContextSensitive
 
 ### Deliverables
 
-✅ Four documentation files under `/claude/out/2/`:
+✅ Four documentation files under `/claude/result/2/`:
 - `2.graph-and-query-analysis.md` (20KB, 609 lines)
 - `2.evaluation-infrastructure.md` (24KB, 758 lines)
 - `2.feasibility-and-roadmap.md` (34KB, 1109 lines)
@@ -282,6 +282,6 @@ For future work:
 
 ## Links
 
-- **Output files**: `/home/dai/code/cpg/claude/out/2/`
+- **Output files**: `/home/dai/code/cpg/claude/result/2/`
 - **Source code**: `/home/dai/code/cpg/cpg-analysis/src/main/kotlin/de/fraunhofer/aisec/cpg/passes/UnreachableEOGPass.kt`
 - **Memory notes**: `/home/dai/code/cpg/claude/memory/semantic/unreachable-eog-pass.md`

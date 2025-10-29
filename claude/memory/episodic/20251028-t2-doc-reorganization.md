@@ -6,7 +6,7 @@ date: 2025-10-28
 task: 2.constant-eval-and-reachability.md (continuation)
 tags: [task-completion, documentation, query-api, cpg-analysis, graph-infrastructure]
 links:
-  - /claude/out/2/2.graph-and-query-analysis.md
+  - /claude/result/2/2.graph-and-query-analysis.md
   - /claude/memory/episodic/20251028-t2-constant-eval-analysis.md (ep-002)
   - /claude/memory/semantic/query-api-dsl.md (sem-004)
 ---
@@ -88,7 +88,7 @@ links:
 
 ### Phase 2: 重组第一份文档（已完成）
 
-**文件**: `/home/dai/code/cpg/claude/out/2/2.graph-and-query-analysis.md`
+**文件**: `/home/dai/code/cpg/claude/result/2/2.graph-and-query-analysis.md`
 
 **原结构** (30 KB):
 ```
@@ -268,6 +268,6 @@ links:
 
 ## 链接
 
-- **输出文件**: `/home/dai/code/cpg/claude/out/2/2.graph-and-query-analysis.md` (已完成)
+- **输出文件**: `/home/dai/code/cpg/claude/result/2/2.graph-and-query-analysis.md` (已完成)
 - **源码分析**: QueryTree.kt, FlowQueries.kt, AnalysisConfiguration.kt, Extensions.kt
 - **前置工作**: ep-002 (Task 2 初始完成)

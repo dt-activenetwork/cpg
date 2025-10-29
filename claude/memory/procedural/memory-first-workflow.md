@@ -264,8 +264,8 @@ related: [sem-XXX, ep-YYY]
 
 ## Outputs
 
-- `/claude/out/<N>/file1.md` (description)
-- `/claude/out/<N>/file2.md` (description)
+- `/claude/result/<N>/file1.md` (description)
+- `/claude/result/<N>/file2.md` (description)
 
 ## Code References
 
@@ -355,23 +355,23 @@ related: [sem-003, ep-002, proc-001]
 
 #### Update 5: Link Episodic Notes to Output Files
 
-**When**: After creating output files in /claude/out/<N>/
+**When**: After creating output files in /claude/result/<N>/
 
 **How**:
 
 **In episodic note frontmatter**:
 ```yaml
 outputs:
-  - /claude/out/3/presentation.md
-  - /claude/out/3/script.md
+  - /claude/result/3/presentation.md
+  - /claude/result/3/script.md
 ```
 
 **In episodic note body**:
 ```markdown
 ## Outputs
 
-- **[presentation.md](/claude/out/3/presentation.md)**: 40-slide presentation on CPG reachability analysis
-- **[script.md](/claude/out/3/script.md)**: Narration script for presentation
+- **[presentation.md](/claude/result/3/presentation.md)**: 40-slide presentation on CPG reachability analysis
+- **[script.md](/claude/result/3/script.md)**: Narration script for presentation
 ```
 
 **In output file** (optional backlink):

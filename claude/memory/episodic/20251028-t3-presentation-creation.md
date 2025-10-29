@@ -6,10 +6,10 @@ date: 2025-10-28
 task: 3.source-example.md
 tags: [task-completion, presentation, marp, cpg-analysis, teaching]
 links:
-  - /claude/out/3/3.presentation-main.md
-  - /claude/out/3/3.presentation-appendix.md
-  - /claude/out/3/3.presenter-notes.md
-  - /claude/out/3/3.diagrams-source.md
+  - /claude/result/3/3.presentation-main.md
+  - /claude/result/3/3.presentation-appendix.md
+  - /claude/result/3/3.presenter-notes.md
+  - /claude/result/3/3.diagrams-source.md
 related: [sem-003, sem-004, ep-002, ep-003]
 ---
 
@@ -636,10 +636,10 @@ Task 3 prompt 的接受标准:
 
 ## Links
 
-- **主演示**: `/claude/out/3/3.presentation-main.md`
-- **补充材料**: `/claude/out/3/3.presentation-appendix.md`
-- **演讲者备注**: `/claude/out/3/3.presenter-notes.md`
-- **图表源码**: `/claude/out/3/3.diagrams-source.md`
+- **主演示**: `/claude/result/3/3.presentation-main.md`
+- **补充材料**: `/claude/result/3/3.presentation-appendix.md`
+- **演讲者备注**: `/claude/result/3/3.presenter-notes.md`
+- **图表源码**: `/claude/result/3/3.diagrams-source.md`
 - **Task 3 prompt**: `/claude/prompt/3.source-example.md`
 - **语义记忆**: sem-003 (UnreachableEOGPass), sem-004 (Query API DSL)
 - **相关任务**: ep-002 (Task 2 分析), ep-003 (Task 2 整改)

@@ -144,4 +144,4 @@ All references verified in source code, commit 04680b1.
 
 ## Cross-References
 - **Architecture**: sem-001
-- **Implementation Details**: `/home/user/cpg/claude/out/1/1.impl-trace.md`
+- **Implementation Details**: `/home/user/cpg/claude/result/1/1.impl-trace.md`

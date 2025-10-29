@@ -6,9 +6,9 @@ date: 2025-10-27
 task: 1.java-cpg.md
 tags: [task-completion, documentation, java-frontend, cpg-analysis]
 links:
-  - /claude/out/1/1.overview-java-frontend.md
-  - /claude/out/1/1.impl-trace.md
-  - /claude/out/1/1.new-frontend-guide.md
+  - /claude/result/1/1.overview-java-frontend.md
+  - /claude/result/1/1.impl-trace.md
+  - /claude/result/1/1.new-frontend-guide.md
 ---
 
 # Task 1: Java CPG Frontend Analysis - Session Summary
@@ -144,7 +144,7 @@ Analyze and document the Java frontend integration with the Code Property Graph 
 ## Results
 
 ### Deliverables
-✅ Three documentation files under `/claude/out/1/`:
+✅ Three documentation files under `/claude/result/1/`:
 - `1.overview-java-frontend.md` (comprehensive architecture overview)
 - `1.impl-trace.md` (detailed code walkthrough)
 - `1.new-frontend-guide.md` (practical implementation guide)
@@ -182,6 +182,6 @@ For future tasks:
 5. **Beginner-friendly**: Explain concepts before diving into code
 
 ## Links
-- **Output files**: `/home/user/cpg/claude/out/1/`
+- **Output files**: `/home/user/cpg/claude/result/1/`
 - **Source code**: `/home/user/cpg/cpg-language-java/`
 - **Memory notes**: `/home/user/cpg/claude/memory/`

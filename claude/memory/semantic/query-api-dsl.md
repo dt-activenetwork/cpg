@@ -413,7 +413,7 @@ val result = executionPath(
 
 - **图层**: sem-001 (Node 架构), sem-003 (UnreachableEOGPass)
 - **协同**: ep-003 (Task 2 文档整改)
-- **相关文档**: `/claude/out/2/2.graph-and-query-analysis.md`
+- **相关文档**: `/claude/result/2/2.graph-and-query-analysis.md`
 
 ## 证据
 

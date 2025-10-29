@@ -98,4 +98,4 @@ All paths and line numbers verified in source code as of commit 04680b1.
 - **Related**: sem-002 (Handler Pattern Implementation)
 - **Related**: sem-003 (Pass System Architecture)
 - **Source Code**: `/home/user/cpg/cpg-language-java/`
-- **Documentation**: `/home/user/cpg/claude/out/1/1.overview-java-frontend.md`
+- **Documentation**: `/home/user/cpg/claude/result/1/1.overview-java-frontend.md`

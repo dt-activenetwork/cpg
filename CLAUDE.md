@@ -175,7 +175,7 @@ Every action MUST follow this sequence:
 │                   TASK EXECUTION                             │
 │  • Use memory for knowledge                                 │
 │  • Analyze codebase as needed                               │
-│  • Produce outputs to /claude/out/<N>/                      │
+│  • Produce outputs to /claude/result/<N>/                      │
 │  • Update memory system                                     │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -273,10 +273,10 @@ Every action MUST follow this sequence:
 4. **For workflows**: Read procedural notes (proc-001, proc-002)
 5. **Optimize with task index**: If task-N-index.json exists, use it to read only needed sections
 
-### `/claude/out/` - Task Outputs (Secondary Source)
+### `/claude/result/` - Task Outputs (Secondary Source)
 
 ```
-/claude/out/
+/claude/result/
 ├── 1/                         # Task 1 outputs (3 docs, 120KB)
 ├── 2/                         # Task 2 outputs (4 docs, 150KB)
 └── 3/                         # Task 3 outputs (pending)
@@ -289,9 +289,60 @@ Every action MUST follow this sequence:
 4. **Read selectively**: If memory insufficient, read specific sections (not entire files)
 
 **Example**:
-- ❌ Bad: Read all of `/claude/out/2/*.md` (5300+ lines)
+- ❌ Bad: Read all of `/claude/result/2/*.md` (5300+ lines)
 - ✅ Good: Read `sem-003` (EOG, 185 lines) + `sem-004` (Query API, 421 lines)
 - ✅ Best: Use `task-3-index.json` to read only lines 20-80, 120-180 of specific files (740 lines total)
+
+### `/claude/temp/` - Temporary Working Directory (**NEW**)
+
+```
+/claude/temp/                  # Temporary artifacts (NOT in git)
+├── task-1/                    # Task 1 working directory
+├── task-2/                    # Task 2 working directory
+├── task-3/                    # Task 3 working directory
+└── task-4/                    # Task 4 working directory
+    ├── brainstorm/            # Brainstorming notes, drafts
+    ├── drafts/                # Incomplete drafts
+    ├── analysis/              # Intermediate analysis
+    ├── reference/             # Reference materials
+    └── STATUS.md              # Task progress tracking
+```
+
+**Purpose**: Temporary working directory for intermediate artifacts during task execution.
+
+**Lifecycle**:
+1. **Created**: Automatically when task starts (if not exists)
+2. **Used**: Store brainstorms, drafts, incomplete analysis, references
+3. **Cleaned**: After task completes, move valuable artifacts to memory or delete
+
+**What Goes Here**:
+- ✅ Brainstorming notes (e.g., `TASK4_DEFECTS_BRAINSTORM.md`)
+- ✅ Incomplete drafts (e.g., partial documentation)
+- ✅ Status tracking files (e.g., `TASK4_COMPLETION_STATUS.md`)
+- ✅ Reference materials from previous attempts
+- ✅ Temporary analysis artifacts
+
+**What Does NOT Go Here**:
+- ❌ Final deliverables (goes to `/claude/result/<N>/`)
+- ❌ Semantic knowledge (goes to `/claude/memory/semantic/`)
+- ❌ Task history (goes to `/claude/memory/episodic/`)
+- ❌ Persistent documentation (stays in `/claude/`)
+
+**Cleanup Policy**:
+- **After task completion**: Review temp directory
+- **Valuable insights**: Extract to semantic notes
+- **Task progress**: Document in episodic note
+- **Rest**: Delete or keep as reference (in `reference/` subdirectory)
+- **Next task start**: Create fresh temp directory for new task
+
+**Git Ignore**: All `/claude/temp/` directories are ignored by git (see `.gitignore`).
+
+**Subdirectory Structure**:
+- `brainstorm/`: Initial ideas, defect lists, concept sketches
+- `drafts/`: Incomplete documentation, partial analysis
+- `analysis/`: Intermediate analysis results, data extractions
+- `reference/`: Previous attempts, reference materials from prior work
+- `STATUS.md`: Real-time task progress tracking (optional)
 
 ---
 
@@ -310,7 +361,7 @@ AI Agent:
 5. ✅ Read last 1-2 episodic notes (ep-002, ep-003)
 6. ✅ Greet user, indicate readiness
 7. ❌ DO NOT read task prompts (1.java-cpg.md, 2.constant-eval..., etc.)
-8. ❌ DO NOT read task outputs (/claude/out/1/, /claude/out/2/)
+8. ❌ DO NOT read task outputs (/claude/result/1/, /claude/result/2/)
 ```
 
 **Context used**: ~500 lines (global config + indexes + recent episodic notes)
@@ -328,7 +379,7 @@ AI Agent:
    for context on when this was analyzed
 4. ✅ Answer user's question based on sem-004
 5. ❌ DO NOT read Task 2 prompt (2.constant-eval-and-reachability.md)
-6. ❌ DO NOT read Task 2 outputs (/claude/out/2/*.md) unless sem-004 insufficient
+6. ❌ DO NOT read Task 2 outputs (/claude/result/2/*.md) unless sem-004 insufficient
 ```
 
 **Context used**: ~500 lines (sem-004 + ep-003) vs 5300+ lines if reading all Task 2 outputs
@@ -410,7 +461,7 @@ Question about <concept>
     ↓ (if insufficient)
 4. Check /claude/memory/episodic/ for related task history
     ↓ (if still insufficient)
-5. Read specific sections of /claude/out/ (NOT entire files)
+5. Read specific sections of /claude/result/ (NOT entire files)
 ```
 
 ---
@@ -456,12 +507,12 @@ Question about <concept>
 
 ### Where Outputs Go
 
-All AI Agent outputs are stored under `/claude/out/<task_number>/`:
+All AI Agent outputs are stored under `/claude/result/<task_number>/`:
 
 ```
-/claude/out/1/    # Task 1: Java Frontend Documentation (3 files)
-/claude/out/2/    # Task 2: CPG Core Analysis (4 files)
-/claude/out/3/    # Task 3: Presentation (pending)
+/claude/result/1/    # Task 1: Java Frontend Documentation (3 files)
+/claude/result/2/    # Task 2: CPG Core Analysis (4 files)
+/claude/result/3/    # Task 3: Presentation (pending)
 ```
 
 ### Output Format
@@ -791,7 +842,7 @@ Question: Is my task >5000 lines total context?
 
 **Do NOT**:
 - ❌ Read task prompts (1.java-cpg.md, 2.constant-eval..., 3.source-example.md) yet
-- ❌ Read task outputs (/claude/out/1/, /claude/out/2/) yet
+- ❌ Read task outputs (/claude/result/1/, /claude/result/2/) yet
 - ❌ "Browse" the directory structure
 
 **The memory system will tell you what exists. Use it.**

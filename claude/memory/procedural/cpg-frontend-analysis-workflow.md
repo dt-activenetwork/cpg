@@ -228,7 +228,7 @@ If using index files:
 ### 6. Finalization (15 minutes)
 
 #### 6.1 Organize Output Files
-- [ ] Files in correct directory (`/claude/out/<task_number>/`)
+- [ ] Files in correct directory (`/claude/result/<task_number>/`)
 - [ ] Naming follows convention
 - [ ] File permissions correct
 
@@ -317,5 +317,5 @@ nativeTypeResolver.add(javaParserTypeSolver)
 - Frontend testing workflow
 
 ## Links
-- **Example output**: `/home/user/cpg/claude/out/1/`
+- **Example output**: `/home/user/cpg/claude/result/1/`
 - **Example memory**: `/home/user/cpg/claude/memory/episodic/20251027-t1-java-cpg-analysis.md`

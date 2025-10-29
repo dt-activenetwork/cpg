@@ -155,7 +155,7 @@ This ensures consistent, high-quality knowledge management across all sessions a
    task: <task-filename.md>
    tags: [task-completion, ...]
    links:
-     - /claude/out/N/output-file.md
+     - /claude/result/N/output-file.md
      - /code/path/analyzed-file.kt:123-456
    related: [sem-XXX, proc-YYY]
    ---

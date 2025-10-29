@@ -288,7 +288,7 @@ related: [sem-XXX, proc-004]
 **What's needed for Step 4**:
 - Memory to read: sem-003 (EOG mechanism)
 - Code to analyze: src/main/kotlin/analysis/*.kt (if needed)
-- Previous outputs: /claude/out/N/file.md (section 1-6 complete)
+- Previous outputs: /claude/result/N/file.md (section 1-6 complete)
 - Intermediate results: /tmp/examples.kt (prepared in Step 3)
 
 **Key context**:
@@ -302,7 +302,7 @@ related: [sem-XXX, proc-004]
 
 ## Outputs
 
-- **[file1.md](/claude/out/N/file1.md)**: Description (Sections 1-6 complete, 7-9 pending)
+- **[file1.md](/claude/result/N/file1.md)**: Description (Sections 1-6 complete, 7-9 pending)
 
 ## Code References
 
@@ -688,7 +688,7 @@ Step 2: Analyze supporting files 11-20 (1500 lines) → Checkpoint
 
 **What's needed**:
 - Memory: sem-004 (Query API)
-- Previous output: /claude/out/2/query-api-doc.md (sections 1-3 complete)
+- Previous output: /claude/result/2/query-api-doc.md (sections 1-3 complete)
 - Focus: Advanced query operators and composition
 ```
 

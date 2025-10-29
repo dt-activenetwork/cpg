@@ -255,7 +255,7 @@ date: YYYY-MM-DD
 task: <task-file-name.md>
 tags: [task-completion, ...]
 links:
-  - /claude/out/N/output-file.md
+  - /claude/result/N/output-file.md
   - /code/path/to/analyzed-file.kt:123-456
 related: [sem-XXX, proc-YYY]
 ---
@@ -278,8 +278,8 @@ related: [sem-XXX, proc-YYY]
 - Finding 2 (with evidence)
 
 ## Outputs Produced
-- /claude/out/N/file1.md
-- /claude/out/N/file2.md
+- /claude/result/N/file1.md
+- /claude/result/N/file2.md
 
 ## Semantic Notes Created/Updated
 - sem-XXX: <what was added>
@@ -507,7 +507,7 @@ related: [sem-XXX, ep-YYY]
 ### Workflow 3: Completing a Task
 
 ```
-1. Ensure all output files are created in /claude/out/<N>/
+1. Ensure all output files are created in /claude/result/<N>/
 2. Create episodic note: /claude/memory/episodic/YYYYMMDD-t<N>-<slug>.md
 3. In episodic note:
    - Document goal, approach, steps, findings
@@ -748,7 +748,7 @@ related: [sem-XXX, ep-YYY]
 3. Create episodic note:
    - File: /claude/memory/episodic/20251028-t4-dfg-analysis.md
    - Link to sem-005
-   - Link to output docs in /claude/out/4/
+   - Link to output docs in /claude/result/4/
 ```
 
 **Result**: Knowledge captured and indexed for future retrieval.
@@ -868,7 +868,7 @@ date: YYYY-MM-DD
 task: <task-file.md>
 tags: [task-completion, ...]
 links:
-  - /claude/out/N/file.md
+  - /claude/result/N/file.md
 related: [sem-XXX, proc-YYY]
 ---
 
@@ -888,7 +888,7 @@ related: [sem-XXX, proc-YYY]
 - Finding 1
 
 ## Outputs Produced
-- /claude/out/N/file.md
+- /claude/result/N/file.md
 
 ## Semantic Notes Created/Updated
 - sem-XXX: <change>

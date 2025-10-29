@@ -18,7 +18,19 @@
     },
     "Task Sessions": {
       "description": "Episodic records of completed tasks",
-      "notes": ["ep-001", "ep-002", "ep-003", "ep-004"]
+      "notes": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-011"]
+    },
+    "Task Planning": {
+      "description": "Design and creation of task prompts and roadmaps",
+      "notes": ["ep-005", "ep-009"]
+    },
+    "Resource Planning": {
+      "description": "HR resource analysis, team structure, skills analysis, and staffing requirements for CPG defect remediation",
+      "notes": ["ep-009", "ep-010"]
+    },
+    "CPG Gap Analysis": {
+      "description": "Analysis of CPG defects and Java-specialized fork strategy",
+      "notes": ["ep-005", "ep-007"]
     },
     "Unreachable Code Analysis": {
       "description": "Constant evaluation and branch pruning for dead code detection",
@@ -43,7 +55,19 @@
     "Context Optimization": {
       "description": "Strategies for managing context window and preventing overflow in large tasks",
       "notes": ["proc-004"]
+    },
+    "Documentation Tools": {
+      "description": "Automation tools for markdown table validation and diagram creation",
+      "notes": ["proc-005"]
+    },
+    "Visualization Reference": {
+      "description": "Complete reference for Mermaid diagrams from official documentation (MCP Ref)",
+      "notes": ["sem-005"]
+    },
+    "Document Localization": {
+      "description": "Localization of technical documentation from English-heavy to Chinese-first format",
+      "notes": ["ep-011"]
     }
   },
-  "updated": "2025-10-28"
+  "updated": "2025-10-29T18:00:00"
 }
