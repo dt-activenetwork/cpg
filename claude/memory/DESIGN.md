@@ -9,17 +9,18 @@
 ## Table of Contents
 
 1. [Executive Summary](#executive-summary)
-2. [System Architecture](#system-architecture)
-3. [Core Concepts](#core-concepts)
-4. [File Structure](#file-structure)
-5. [Memory Types](#memory-types)
-6. [Index System](#index-system)
-7. [Workflows](#workflows)
-8. [Quality Standards](#quality-standards)
-9. [Performance Optimizations](#performance-optimizations)
-10. [Maintenance and Evolution](#maintenance-and-evolution)
-11. [Usage Examples](#usage-examples)
-12. [Troubleshooting](#troubleshooting)
+2. [System Knowledge (New)](#system-knowledge)
+3. [System Architecture](#system-architecture)
+4. [Core Concepts](#core-concepts)
+5. [File Structure](#file-structure)
+6. [Memory Types](#memory-types)
+7. [Index System](#index-system)
+8. [Workflows](#workflows)
+9. [Quality Standards](#quality-standards)
+10. [Performance Optimizations](#performance-optimizations)
+11. [Maintenance and Evolution](#maintenance-and-evolution)
+12. [Usage Examples](#usage-examples)
+13. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -51,6 +52,178 @@ The CPG Memory System is a **file-based external memory** designed to enable an 
 4. **Evidence-Based**: Every claim links to source code or primary artifacts
 5. **Incremental Growth**: Add knowledge as discovered, don't wait for task completion
 6. **Consistency Over Duplication**: Update existing notes rather than creating duplicates
+
+---
+
+## System Knowledge
+
+### Overview
+
+**System Knowledge** (`/claude/memory/system/`) is a **new addition** (2025-10-30) that extends the memory system with **universal, project-agnostic knowledge** that can be reused across any project.
+
+**Key Distinction**:
+- **System Knowledge** (`sys-*`): Universal tools, standards, best practices (e.g., Mermaid, Markdown)
+- **Project Knowledge** (`sem-*`, `ep-*`, `proc-*`): Project-specific knowledge (e.g., CPG architecture)
+
+### Architecture Update
+
+The memory system now has **four layers** instead of three:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    APPLICATION LAYER                         │
+│  (AI Agent using memory system for tasks)                   │
+└────────────────┬────────────────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     INDEX LAYER                              │
+│  • Global Index (merges system + project)                   │
+│  • Task-Specific Index                                      │
+│  • Enhanced Indexes                                         │
+└────────────────┬────────────────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────┐
+│              SYSTEM KNOWLEDGE LAYER (NEW)                    │
+│  • Universal tool knowledge (sys-tool-*)                    │
+│  • Universal workflows (sys-wf-*)                           │
+│  • Universal standards (sys-std-*)                          │
+└────────────────┬────────────────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────┐
+│              PROJECT KNOWLEDGE LAYER                         │
+│  • Semantic Memory (sem-*)                                  │
+│  • Episodic Memory (ep-*)                                   │
+│  • Procedural Memory (proc-*)                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Current System Knowledge
+
+As of 2025-10-30, the system includes **3 tool knowledge notes**:
+
+| ID | Title | Purpose |
+|----|-------|---------|
+| `sys-tool-001` | Mermaid Diagram Syntax and Best Practices | Universal diagramming knowledge |
+| `sys-tool-002` | Markdown Documentation Best Practices | Universal documentation standards |
+| `sys-tool-003` | Code Reference and Evidence Format Standards | Universal code traceability standards |
+
+### Directory Structure
+
+```
+/claude/memory/system/
+├── tools/                         # Universal tool knowledge
+│   ├── mermaid-diagrams.md        (sys-tool-001)
+│   ├── markdown-best-practices.md (sys-tool-002)
+│   └── code-reference-format.md   (sys-tool-003)
+├── workflows/                     # Universal workflows (future)
+├── index/                         # System knowledge indexes
+│   ├── system-tags.json           # System-only tags
+│   └── system-topics.json         # System-only topics
+└── README.md                      # System knowledge documentation
+```
+
+### Index Merging
+
+**System indexes** are merged with **project indexes** in the global index:
+
+**Global `/claude/memory/index/tags.json`**:
+```json
+{
+  "tags": {
+    "mermaid": ["sem-005", "sys-tool-001"],  // Project + System
+    "documentation": ["ep-001", "proc-001", "sys-tool-002", "sys-tool-003"],
+    "system-knowledge": ["sys-tool-001", "sys-tool-002", "sys-tool-003"]
+  }
+}
+```
+
+**Query behavior**:
+- AI agent queries global index (merged)
+- Returns both system and project notes
+- Example: Query "mermaid" → returns `sem-005` (project-specific conventions) + `sys-tool-001` (universal syntax)
+
+### Reusability
+
+**System knowledge is designed for cross-project reuse**:
+
+**To reuse in new project**:
+1. Copy `/claude/memory/system/` directory to new project
+2. Initialize new project memory structure
+3. Merge system indexes into new project's global indexes
+4. System knowledge immediately available
+
+**Benefits**:
+- ✅ No re-learning tool syntax for each project
+- ✅ Consistent standards across all projects
+- ✅ Context savings (read universal knowledge once)
+
+### Design Principles
+
+**System knowledge must be**:
+1. **Project-agnostic**: Zero project-specific terminology or examples
+2. **Universally applicable**: Applies to all technical projects
+3. **Stable**: Changes rarely (only when tools/standards evolve)
+4. **Evidence-based**: References authoritative sources
+
+**Example**:
+- ✅ "Use Mermaid flowcharts for process flows" (universal)
+- ❌ "Use Mermaid flowcharts to show CPG construction" (project-specific)
+
+### Usage Patterns
+
+**Cross-referencing**:
+- Project notes → System notes: ✅ Allowed and encouraged
+- System notes → Project notes: ❌ Prohibited (breaks reusability)
+
+**Example**:
+```markdown
+<!-- In project semantic note sem-015 -->
+
+## Diagram Conventions
+
+We follow standard Mermaid conventions (see [sys-tool-001](../system/tools/mermaid-diagrams.md)).
+
+**Project-specific additions**:
+- Use green for success paths
+- Use red for error paths
+```
+
+**Query workflow**:
+```
+User: "How do I create a sequence diagram?"
+    ↓
+AI Agent queries global index for "sequence-diagram"
+    ↓
+Finds: sys-tool-001 (Mermaid syntax)
+    ↓
+Reads sys-tool-001 and provides answer
+    ↓
+No need to re-learn Mermaid for each project
+```
+
+### Maintenance
+
+**When to add system knowledge**:
+- Discovered a universal tool/standard used across projects
+- Identified best practice from authoritative source
+- Extracted workflow applicable to any technical project
+
+**When NOT to add**:
+- Project-specific knowledge (goes to `semantic/`)
+- Experimental practices (not validated)
+- One-time solutions (not reusable)
+
+**Update frequency**: Rare (when tools/standards evolve)
+
+### Future Expansion
+
+**Planned additions**:
+- `sys-tool-004`: JSON Schema validation
+- `sys-wf-001`: Documentation writing workflow
+- `sys-std-001`: API documentation format
 
 ---
 
@@ -158,7 +331,7 @@ New Knowledge Discovered
 │   │   ├── task-3-index.json              # Task-specific index
 │   │   └── archive/                       # Old task indexes (after 3+ tasks)
 │   └── DESIGN.md                    # This file
-├── out/                             # Task outputs (not memory)
+├── result/                          # Task outputs (not memory)
 │   ├── 1/                           # Task 1 deliverables
 │   ├── 2/                           # Task 2 deliverables
 │   └── 3/                           # Task 3 deliverables (pending)
@@ -177,7 +350,7 @@ Semantic Notes (sem-NNN)
     ↓ referenced by
 Episodic Notes (ep-NNN) ← records
     ↓ links to                      ↓
-Output Docs (/out/N/)          Task Prompts (/prompt/N-*.md)
+Output Docs (/result/N/)       Task Prompts (/prompt/N-*.md)
     ↑ synthesized from
 Codebase (/home/dai/code/cpg/)
 ```

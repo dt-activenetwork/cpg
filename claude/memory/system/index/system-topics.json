@@ -1,0 +1,27 @@
+{
+  "description": "System knowledge topics - Organized by universal capability areas",
+  "topics": {
+    "Documentation Tools": {
+      "description": "Tools and formats for creating technical documentation",
+      "notes": ["sys-tool-001", "sys-tool-002", "sys-tool-003"]
+    },
+    "Diagram Creation": {
+      "description": "Creating diagrams and visualizations using Mermaid",
+      "notes": ["sys-tool-001"]
+    },
+    "Writing Standards": {
+      "description": "Best practices for writing clear, maintainable documentation",
+      "notes": ["sys-tool-002"]
+    },
+    "Code Traceability": {
+      "description": "Standards for referencing code and providing evidence",
+      "notes": ["sys-tool-003"]
+    },
+    "System Knowledge": {
+      "description": "Meta-category for all system-level knowledge (tools, workflows, standards)",
+      "notes": ["sys-tool-001", "sys-tool-002", "sys-tool-003"]
+    }
+  },
+  "updated": "2025-10-30",
+  "note": "These topics are for system knowledge only. Project-specific topics are in /claude/memory/index/topics.json"
+}

@@ -1,0 +1,23 @@
+{
+  "description": "System knowledge tags - Universal tool and workflow knowledge that applies to any project",
+  "tags": {
+    "system-knowledge": ["sys-tool-001", "sys-tool-002", "sys-tool-003"],
+    "mermaid": ["sys-tool-001"],
+    "diagram": ["sys-tool-001"],
+    "visualization": ["sys-tool-001"],
+    "flowchart": ["sys-tool-001"],
+    "sequence-diagram": ["sys-tool-001"],
+    "class-diagram": ["sys-tool-001"],
+    "state-diagram": ["sys-tool-001"],
+    "markdown": ["sys-tool-002"],
+    "documentation": ["sys-tool-002", "sys-tool-003"],
+    "writing": ["sys-tool-002"],
+    "formatting": ["sys-tool-002"],
+    "code-reference": ["sys-tool-003"],
+    "evidence": ["sys-tool-003"],
+    "traceability": ["sys-tool-003"],
+    "best-practices": ["sys-tool-001", "sys-tool-002", "sys-tool-003"]
+  },
+  "updated": "2025-10-30",
+  "note": "These tags are for system knowledge only. Project-specific tags are in /claude/memory/index/tags.json"
+}
