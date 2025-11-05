@@ -8,8 +8,13 @@
     "design-pattern": ["sem-002"],
     "handlers": ["sem-002"],
     "ast-transformation": ["sem-002"],
-    "task-completion": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-010", "ep-011"],
-    "task-prompt": ["ep-005", "ep-009"],
+    "task-completion": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-010", "ep-011", "ep-012"],
+    "file-organization": ["ep-012"],
+    "task-prompt": ["ep-005", "ep-009", "ep-013"],
+    "onboarding": ["ep-013"],
+    "education": ["ep-013"],
+    "pl-theory": ["ep-013"],
+    "compiler-concepts": ["ep-013"],
     "resource-analysis": ["ep-009", "ep-010"],
     "staffing": ["ep-009", "ep-010"],
     "hr-planning": ["ep-009", "ep-010"],
@@ -20,7 +25,7 @@
     "architectural-critique": ["ep-005", "ep-007"],
     "roadmap": ["ep-005", "ep-007"],
     "defect-analysis": ["ep-007"],
-    "documentation": ["ep-001", "proc-001", "ep-002", "ep-003", "proc-005", "sem-005", "ep-008", "ep-011", "sys-tool-002", "sys-tool-003"],
+    "documentation": ["ep-001", "proc-001", "ep-002", "ep-003", "proc-005", "sem-005", "ep-008", "ep-011", "ep-012", "sys-tool-002", "sys-tool-003"],
     "localization": ["ep-011"],
     "chinese": ["ep-011"],
     "task-4": ["ep-007", "ep-011"],
@@ -68,6 +73,6 @@
     "evidence": ["sys-tool-003"],
     "traceability": ["sys-tool-003"]
   },
-  "updated": "2025-10-30",
+  "updated": "2025-11-05",
   "note": "System knowledge tags (sys-*) are universal and can be copied to new projects. Project-specific tags (sem-*, ep-*, proc-*) are unique to this project."
 }
