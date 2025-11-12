@@ -8,9 +8,17 @@
     "design-pattern": ["sem-002"],
     "handlers": ["sem-002"],
     "ast-transformation": ["sem-002"],
-    "task-completion": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-010", "ep-011", "ep-012"],
+    "task-completion": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-010", "ep-011", "ep-012", "ep-015"],
     "file-organization": ["ep-012"],
-    "task-prompt": ["ep-005", "ep-009", "ep-013"],
+    "task-prompt": ["ep-005", "ep-009", "ep-013", "ep-014"],
+    "task-8": ["ep-014", "ep-015"],
+    "containerization": ["ep-014", "ep-015"],
+    "architecture-design": ["ep-014", "ep-015"],
+    "build-query-separation": ["ep-014", "ep-015"],
+    "serialization": ["ep-014", "ep-015"],
+    "docker": ["ep-015"],
+    "kubernetes": ["ep-015"],
+    "kotlin-script": ["ep-015"],
     "onboarding": ["ep-013"],
     "education": ["ep-013"],
     "pl-theory": ["ep-013"],
@@ -73,6 +81,6 @@
     "evidence": ["sys-tool-003"],
     "traceability": ["sys-tool-003"]
   },
-  "updated": "2025-11-05",
+  "updated": "2025-11-12T12:00:00",
   "note": "System knowledge tags (sys-*) are universal and can be copied to new projects. Project-specific tags (sem-*, ep-*, proc-*) are unique to this project."
 }

@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  # 构建容器（运行一次，构建 CPG 图）
+  builder:
+    image: cpg-builder:v1.0
+    environment:
+      - GIT_REPO=${GIT_REPO}
+      - GIT_REF=${GIT_REF:-main}
+      - PASSES=${PASSES}
+      - LANGUAGES=${LANGUAGES:-java}
+      - OUTPUT_PATH=/output/graph.dump
+      - SOURCE_INCLUDES=${SOURCE_INCLUDES:-**/*.java,**/*.kt}
+      - SOURCE_EXCLUDES=${SOURCE_EXCLUDES:-**/test/**,**/generated/**}
+      - JAVA_OPTS=${JAVA_OPTS:--Xmx4g -Xms2g}
+    volumes:
+      - graph-data:/output
+    networks:
+      - cpg-network
+
+  # 查询容器（可并发扩展多实例）
+  query:
+    image: cpg-query:v1.0
+    environment:
+      - GRAPH_PATH=/input/graph.dump
+      - QUERY_SCRIPT=/queries/${QUERY_NAME}.kts
+      - OUTPUT_PATH=/output/${QUERY_NAME}-result.json
+      - QUERY_TIMEOUT=${QUERY_TIMEOUT:-300}
+    volumes:
+      - graph-data:/input:ro      # 只读模式（防止误修改）
+      - ./queries:/queries:ro      # 用户查询脚本（只读）
+      - ./results:/output          # 查询结果输出目录
+    depends_on:
+      - builder
+    networks:
+      - cpg-network
+    deploy:
+      replicas: ${QUERY_REPLICAS:-1}  # 默认 1 个实例，可扩展
+
+  # 安全扫描查询容器（示例：专用查询容器）
+  query-security:
+    image: cpg-query:v1.0
+    environment:
+      - GRAPH_PATH=/input/graph.dump
+      - QUERY_SCRIPT=/queries/security-scan.kts
+      - OUTPUT_PATH=/output/security-result.json
+    volumes:
+      - graph-data:/input:ro
+      - ./queries:/queries:ro
+      - ./results:/output
+    depends_on:
+      - builder
+    networks:
+      - cpg-network
+
+  # 代码质量检查查询容器（示例：专用查询容器）
+  query-quality:
+    image: cpg-query:v1.0
+    environment:
+      - GRAPH_PATH=/input/graph.dump
+      - QUERY_SCRIPT=/queries/code-quality-check.kts
+      - OUTPUT_PATH=/output/quality-result.json
+    volumes:
+      - graph-data:/input:ro
+      - ./queries:/queries:ro
+      - ./results:/output
+    depends_on:
+      - builder
+    networks:
+      - cpg-network
+
+  # 不可达代码检查查询容器（示例：专用查询容器）
+  query-unreachable:
+    image: cpg-query:v1.0
+    environment:
+      - GRAPH_PATH=/input/graph.dump
+      - QUERY_SCRIPT=/queries/find-unreachable-code.kts
+      - OUTPUT_PATH=/output/unreachable-result.json
+    volumes:
+      - graph-data:/input:ro
+      - ./queries:/queries:ro
+      - ./results:/output
+    depends_on:
+      - builder
+    networks:
+      - cpg-network
+
+volumes:
+  graph-data:
+    driver: local
+
+networks:
+  cpg-network:
+    driver: bridge

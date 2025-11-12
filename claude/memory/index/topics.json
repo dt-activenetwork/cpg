@@ -22,7 +22,11 @@
     },
     "Task Planning": {
       "description": "Design and creation of task prompts and roadmaps",
-      "notes": ["ep-005", "ep-009"]
+      "notes": ["ep-005", "ep-009", "ep-013", "ep-014"]
+    },
+    "Containerized Architecture": {
+      "description": "Build-once-query-many architecture: container-based separation of graph construction and querying",
+      "notes": ["ep-014", "ep-015"]
     },
     "Resource Planning": {
       "description": "HR resource analysis, team structure, skills analysis, and staffing requirements for CPG defect remediation",
@@ -69,5 +73,5 @@
       "notes": ["ep-011"]
     }
   },
-  "updated": "2025-10-29T18:00:00"
+  "updated": "2025-11-12T12:00:00"
 }
