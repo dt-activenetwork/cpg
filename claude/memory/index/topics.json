@@ -18,11 +18,35 @@
     },
     "Task Sessions": {
       "description": "Episodic records of completed tasks",
-      "notes": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-011"]
+      "notes": ["ep-001", "ep-002", "ep-003", "ep-004", "ep-007", "ep-008", "ep-011", "ep-018", "ep-022", "ep-023", "ep-026"]
     },
     "Task Planning": {
       "description": "Design and creation of task prompts and roadmaps",
-      "notes": ["ep-005", "ep-009", "ep-013", "ep-014"]
+      "notes": ["ep-005", "ep-009", "ep-013", "ep-014", "ep-018", "ep-023"]
+    },
+    "Task Revision and Correction": {
+      "description": "Critical corrections and revisions to task prompts and execution plans based on source code verification",
+      "notes": ["ep-018", "ep-023"]
+    },
+    "Agent-based Architectures": {
+      "description": "Multi-agent parallel execution architectures for large-scale tasks: verification path + exploration path + synthesis",
+      "notes": ["ep-023", "ep-026"]
+    },
+    "Java 17 Support Assessment": {
+      "description": "Comprehensive evaluation of CPG's support for Java 11-17 language features using multi-agent analysis",
+      "notes": ["ep-026", "sem-007"]
+    },
+    "Batch Processing Patterns": {
+      "description": "Batch processing execution patterns for long-running tasks with account limits and interruptibility requirements",
+      "notes": ["ep-023"]
+    },
+    "Queue-based Architectures": {
+      "description": "Dynamic queue architectures with planning queue (serial) and execution queue (parallel batch processing), supporting context offloading and concurrent control",
+      "notes": ["ep-023"]
+    },
+    "Static Analysis Algorithms": {
+      "description": "Academic research on interprocedural analysis, call graphs, alias analysis, symbolic execution, and SSA",
+      "notes": ["ep-023"]
     },
     "Containerized Architecture": {
       "description": "Build-once-query-many architecture: container-based separation of graph construction and querying",
@@ -34,7 +58,11 @@
     },
     "CPG Gap Analysis": {
       "description": "Analysis of CPG defects and Java-specialized fork strategy",
-      "notes": ["ep-005", "ep-007"]
+      "notes": ["ep-005", "ep-007", "ep-022", "sem-006"]
+    },
+    "Source Code Investigation": {
+      "description": "Deep source code investigation for Scenario verification and defect discovery (6000+ lines of code analyzed)",
+      "notes": ["ep-022"]
     },
     "Unreachable Code Analysis": {
       "description": "Constant evaluation and branch pruning for dead code detection",
@@ -73,5 +101,5 @@
       "notes": ["ep-011"]
     }
   },
-  "updated": "2025-11-12T12:00:00"
+  "updated": "2025-11-13T21:15:00"
 }

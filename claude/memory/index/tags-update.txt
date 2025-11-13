@@ -1,0 +1,14 @@
+# New tags to add to tags.json:
+"java-11-17": ["ep-024", "sem-007"],
+"node-type-system": ["sem-007", "ep-024"],
+"records": ["sem-007", "ep-024"],
+"sealed-classes": ["sem-007", "ep-024"],
+"pattern-matching": ["sem-007", "ep-024"],
+"switch-expressions": ["sem-007", "ep-024"],
+"text-blocks": ["sem-007", "ep-024"],
+"gap-analysis": ["sem-007", "ep-024", "sem-006"],
+"java-frontend": ["sem-001", "sem-002", "ep-024"],
+"architecture-assessment": ["sem-007", "ep-024"]
+
+# Update existing tags:
+Add "sem-007", "ep-024" to: "cpg", "java", "analysis", "documentation", "defect-analysis"
