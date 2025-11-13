@@ -1,15 +1,29 @@
 ---
 id: sem-005
-title: CPG Defect Patterns for Java Constant Analysis
+title: CPG Defect Patterns for Java Constant Analysis [SUPERSEDED - CONTAINS ERRORS]
 type: semantic
-tags: [cpg, defect-analysis, java, constant-evaluation, gap-analysis]
+tags: [cpg, defect-analysis, java, constant-evaluation, gap-analysis, superseded, contains-errors]
 created: 2025-10-28
-updated: 2025-10-28
+updated: 2025-11-13
 source: Task 4 - Gap Analysis (Scenario 1 深度分析)
 related: [sem-001, sem-002, sem-003, sem-004, ep-006]
+superseded-by: sem-006
 ---
 
-# CPG Defect Patterns for Java Constant Analysis
+# ⚠️ CORRECTION NOTICE
+
+**This document has been SUPERSEDED by sem-006 due to technical errors discovered in Task 9.**
+
+Key corrections needed:
+- D3: Interprocedural infrastructure EXISTS (CallingContext, invokes edges) but is unused by ValueEvaluator
+- D4: Call Graph edges exist at method level but global graph not constructed
+- Missing D1 and D2: The most critical defects were completely missed
+
+**Please refer to `/claude/memory/semantic/cpg-defect-patterns-corrected.md` (sem-006) for accurate information.**
+
+---
+
+# CPG Defect Patterns for Java Constant Analysis [CONTAINS ERRORS - See sem-006]
 
 ## Why now
 
